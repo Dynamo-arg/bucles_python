@@ -11,7 +11,7 @@ Programa creado para que practiquen los conocimietos
 adquiridos durante la semana
 '''
 
-__author__ = "Inove Coding School"
+__author__ = "Sebastian Volpe"
 __email__ = "alumnos@inove.com.ar"
 __version__ = "1.1"
 
@@ -36,17 +36,35 @@ def ej1():
     '''
 
     # inicio = ....
+    inicio = int(input('Ingrese el primero número de la secuencia\n'))
     # fin = ....
+    fin = int(input('Ingrese el segundo número de la secuencia\n'))
+    # Entiendo que si el segundo numero es menor no habra secuencia
+    if inicio > fin:
+        print("Error el segundo numero debe ser mayor")
+    else:
+        secuencia = (fin - inicio) + 1
+        cantidad_numeros = 0
+        sumatoria = 0
+        todos = []
+        for i in range(secuencia):
+                todos.append(inicio)
+                inicio += 1
+        
+        # cantidad_numeros ....
+        cantidad_numeros = len(todos)
+        print("La cantidad de numeros de esta secuencia es:", cantidad_numeros)
 
-    # cantidad_numeros ....
-    # sumatoria ....
+        # sumatoria ....
+        for i in range(secuencia):
+            sumatoria += todos[i]
+        print("La suma total es:", sumatoria)
 
-    # bucle.....
+        # Al terminar el bucle calcular el promedio como:
+        promedio = sumatoria / cantidad_numeros
+        # Imprimir resultado en pantalla
+        print("El valor promedio de esta secuencia es:", promedio)
 
-    # Al terminar el bucle calcular el promedio como:
-    # promedio = sumatoria / cantidad_numeros
-
-    # Imprimir resultado en pantalla
 
 
 def ej2():
@@ -62,6 +80,29 @@ def ej2():
     Se debe debe imprimir un cartel de error si el operador ingresado no es
     alguno de lo soportados o no es la palabra "FIN"
     '''
+    numero_1 = int(input('Ingrese el primer número:'))
+    numero_2 = int(input('Ingrese el Sgundo número:'))
+
+    while True:
+        print("Ingrese operacion a realizar: + - / ** *")
+        print("O ingrese fin para cerrar la calculadora")
+        calcular = input()
+        if calcular == "fin":
+            break
+        else:
+            if calcular == "+":
+                print("La suma es= ", numero_1 + numero_2)
+            elif calcular == "-":
+                print("La resta es= ", numero_1 - numero_2)
+            elif calcular == "*":
+                print("La multipliacion es= ", numero_1 * numero_2)
+            elif calcular == "/":
+                print("La division es= ", numero_1 / numero_2)
+            elif calcular == "**":
+                print("El exponente es= ", numero_1 ** numero_2)
+            else:
+                print("Operador no soportado. Si termino poner fin!")
+    
 
 
 def ej3():
@@ -85,24 +126,55 @@ def ej3():
 
     Debe contar la cantidad de notas válidas y la cantidad de ausentes
     '''
-
+    # Si el promedio es mayor igual a 90 --> imprimir A
+    # Si el promedio es mayor igual a 80 --> imprimir B
+    # Si el promedio es mayor igual a 70 --> imprimir C
+    # Si el promedio es mayor igual a 60 --> imprimir D
+    # Si el promedio es manor a  60      --> imprimir F
     # Para calcular el promedio primero debe obtener la suma
     # de todas las notas, que irá almacenando en esta variable
-    sumatoria = 0           # Ya le hemos inicializado en 0
 
+    sumatoria = 0           # Ya le hemos inicializado en 0
     cantidad_notas = 0      # Aquí debe contar cuantas notas válidas encontró
     cantidad_ausentes = 0   # Aquí debe contar cuantos ausentes hubo
 
     # Realice aquí el bucle para recorrer todas las notas
     # y cacular la sumatoria
 
+    for i in notas:
+        if i > 0:
+            cantidad_notas += 1
+            sumatoria += i
+        else:
+            cantidad_ausentes += 1
+    
+    print("La sumatoria de todas las notas de", sumatoria)
+    # Imprima en pantalla al cantidad de ausentes
+    print("La sumatoria Alumnos ausentes fue:", cantidad_ausentes)
+    print("La sumatoria notas validas", cantidad_notas)
+       
     # Terminado el bucle calcule el promedio como
-    # promedio = sumatoria / cantidad_notas
+    promedio = sumatoria / cantidad_notas
+    print("El promedio de la nota es", promedio)
 
     # Utilice la nota promedio calculada y transformela
     # a calificación con letras, imprima en pantalla el resultado
+    if promedio >= 90:
+        print("El promedio de notas fue A", promedio)
+    else:
+        if promedio >= 80:
+            print("El promedio de notas fue B", promedio)
+        else:
+            if promedio >= 70:
+                print("El promedio de notas fue C", promedio)
+            else:
+                if promedio >= 60:
+                    print("El promedio de notas fue D", promedio)
+                else:
+                    if promedio < 60:
+                        print("El promedio de notas fue F", promedio)
 
-    # Imprima en pantalla al cantidad de ausentes
+
 
 
 def ej4():
@@ -252,5 +324,5 @@ if __name__ == '__main__':
     #ej1()
     #ej2()
     #ej3()
-    #ej4()
+    ej4()
     #ej5()
