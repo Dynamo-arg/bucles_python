@@ -216,6 +216,24 @@ def ej4():
     temperatura_len = 0         # Aquí debe almacenar cuantas temperatuas hay en la lista
 
     # Colocar el bucle aqui......
+    for i in temp_dataloger:
+        if (temperatura_max is None) or (i > temperatura_max):
+            temperatura_max = i
+    for i in temp_dataloger:
+        if (temperatura_min is None) or (i < temperatura_min):
+            temperatura_min = i
+    
+    for i in temp_dataloger:
+        temperatura_sumatoria += i
+    # Al finalizar el bucle debe calcular el promedio como:
+    # temperatura_promedio = temperatura_sumatoria / cantidad_temperatuas   
+    temperatura_len = len(temp_dataloger)
+    temperatura_promedio = temperatura_sumatoria / temperatura_len
+    print("La temperatura promedio es:", temperatura_promedio)
+
+    # Calculando de otra manera el minimo y el maximo
+    maximo = max(temp_dataloger)
+    minimo = min(temp_dataloger)
 
     # Al finalizar el bucle compare si el valor que usted calculó para
     # temperatura_max y temperatura_min coincide con el que podría calcular
@@ -223,12 +241,24 @@ def ej4():
     # función "max" --> https://www.w3schools.com/python/ref_func_max.asp
     # función "min" --> https://www.w3schools.com/python/ref_func_min.asp
 
-    # Al finalizar el bucle debe calcular el promedio como:
-    # temperatura_promedio = temperatura_sumatoria / cantidad_temperatuas
+    if temperatura_max == maximo:
+        print("Los dos valores maximos coinciden")
+    else:
+        Print("No coinciden")
+    if temperatura_min == minimo:
+        print("Los dos valores minimos coinciden")
+    else:
+        Print("No coinciden")
 
     # Corroboren los resultados de temperatura_sumatoria
     # usando la función "sum"
     # función "sum" --> https://www.w3schools.com/python/ref_func_sum.asp
+
+    suma = sum(temp_dataloger)
+    if suma == temperatura_sumatoria:
+        print("Los dos valores sumatorios coinciden")
+    else:
+        Print("No coinciden")
 
     '''
     Una vez que tengamos nuestros valores correctamente calculados debemos
@@ -249,6 +279,15 @@ def ej4():
     # ¿En qué época del año nos encontramos?
     # Imprima el resultado en pantalla
     # Debe utilizar temperatura_max y temperatura_min para definirlo
+    verano =  (19 + 28) / 2
+    otoño =  (11 + 24) / 2    
+    invierno = (8 + 14) / 2   
+    primavera = (10 + 24) / 2
+    actual = (temperatura_min + temperatura_max) / 2
+    print(actual)
+
+
+
 
 
 def ej5():
